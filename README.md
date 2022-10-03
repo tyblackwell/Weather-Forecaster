@@ -1,2 +1,20 @@
 # Weather-Forecaster
 This app will allow users to search the Weather Forecast for a specific area.
+
+* **Project Members:**
+  * Bruno Aguiar
+  * Nazire Wood
+  * Ty Blackwell
+
+* **Learning Goals:**
+  * Create DOM elements programmatically;
+  * Add elements to the DOM;
+  * Update elements using innerHTML;
+  * Change Properties on DOM nodes;
+  * Create event listeners on DOM nodes using addEventListener();
+  * Use at least 3 event listeners;
+  * Manipulate the DOM;
+  * Recognize JS events;
+  * Communicate with the server;
+  * Manipulate API data by array iteration;
+  * Use JSON Communication;
