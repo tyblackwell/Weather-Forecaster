@@ -16,9 +16,21 @@ searchForm.addEventListener("submit", (e) => {
 function fetchCityWeather(city) {
   //console.log(city); //Works
   fetch(`${weatherApiUrl}${city}&days=3`, options)
-    .then((response) => response.json())
-    .then((response) => console.log(response))
+    .then(res => res.json())
+    .then(weatherReport => {
+      locationSpotlight(weatherReport);
+    })
     .catch((err) => console.error(err));
+}
+
+function locationSpotlight(weatherReport) {
+  //console.log(weatherReport.location.name) //Works
+  let locationName = document.createElement('h3');
+  locationName.textContent = weatherReport.location.name
+  //console.log(locationName)
+
+  document.getElementById('city-name').append(locationName);
+  
 }
 
 const toggleBtn = document.querySelector(".toggle");
