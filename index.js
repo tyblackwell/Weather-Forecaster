@@ -62,6 +62,13 @@ function weatherCardFahrenheit(weatherReport) {
   let currentTempCard = document.querySelector('.current-temp');
   currentTempCard.innerHTML = "";
   currentTempCard.append(currentTemp);
+
+  //Display Setup for Feels Like Temp for Weather Card
+  let feelsLikeTemp = document.createElement('h2');
+  feelsLikeTemp.textContent = `Feels Like : ${weatherReport.current.feelslike_f} °F`;
+  let feelsLikeTempCard = document.querySelector('.feels-temp');
+  feelsLikeTempCard.innerHTML = "";
+  feelsLikeTempCard.append(feelsLikeTemp);
 }
 
 // This is on hold because I can't get layout to work
