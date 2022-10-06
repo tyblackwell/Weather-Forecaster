@@ -1,32 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-image: url(src/pictures/back_drop.jpg);
-    background-position: center;
-    background-repeat:no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    display: flex;
+    align-items: top;
+    justify-content: left;
+    background: black;
 }
 
-#location-highlight {
-    display: inline;
-    text-align: center;
-}
-
-
-#weather-card {
-    display: inline;
-    text-align: center;
-}
-
-.nav-bar {
+form {
     margin: 20px;
+    padding: 20px;
+    position: relative;
 }
 
-.search-bar {
-    /* display: inline-block; */
+label {
+    color: white;
 }
 
-
-/* .toggle {
+.toggle {
     position: absolute;
     left: 300px;
     top: 50px;
@@ -57,4 +52,5 @@ body {
     left: calc(100% - 70px);
     background-color: #fff;
     border-color: green;
-} */
+}
+
