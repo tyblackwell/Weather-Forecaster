@@ -24,15 +24,26 @@ function fetchCityWeather(city) {
 }
 
 function locationSpotlight(weatherReport) {
-  //console.log(weatherReport.location.name) //Works
-  let locationName = document.createElement('h3');
-  locationName.textContent = weatherReport.location.name
-  //console.log(locationName)
+//console.log(weatherReport) //Works
 
-  document.getElementById('city-name').append(locationName);
+//Display Setup for the locations name in Location Highlight
+  let locationName = document.createElement('h2');
+  locationName.textContent = `${weatherReport.location.name} , ${weatherReport.location.region}`;
   
+  let nameHighlight = document.getElementById('city-name');
+  nameHighlight.innerHTML = '';
+  nameHighlight.append(locationName);
+
+//Display Setup for the locations country in Location Highlight
+  let locationCountry = document.createElement('h2');
+  locationCountry.textContent = weatherReport.location.country;
+
+  let countryHighlight = document.getElementById('country');
+  countryHighlight.innerHTML = '';
+  countryHighlight.append(locationCountry);
 }
 
-const toggleBtn = document.querySelector(".toggle");
+// This is on hold because I can't get layout to work
+// const toggleBtn = document.querySelector(".toggle");
 
-toggleBtn.addEventListener("click", () => toggleBtn.classList.toggle("active"));
+// toggleBtn.addEventListener("click", () => toggleBtn.classList.toggle("active"));
