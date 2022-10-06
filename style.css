@@ -21,6 +21,17 @@ label {
     color: white;
 } */
 
+#location-highlight {
+    display: inline;
+    text-align: center;
+}
+
+
+#weather-card {
+    display: inline;
+    text-align: center;
+}
+
 .nav-bar {
     margin: 20px;
 }
@@ -29,10 +40,6 @@ label {
     /* display: inline-block; */
 }
 
-.location-highlight {
-    display: inline;
-    text-align: center;
-}
 
 /* .toggle {
     position: absolute;
