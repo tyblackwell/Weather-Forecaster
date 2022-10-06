@@ -58,7 +58,6 @@ function weatherCardFahrenheit(weatherReport) {
   //Display Setup for current Temp for Weather Card
   let currentTemp = document.createElement('h2');
   currentTemp.textContent = `Current Temp : ${weatherReport.current.temp_f} °F`;
-  
   let currentTempCard = document.querySelector('.current-temp');
   currentTempCard.innerHTML = "";
   currentTempCard.append(currentTemp);
@@ -69,6 +68,27 @@ function weatherCardFahrenheit(weatherReport) {
   let feelsLikeTempCard = document.querySelector('.feels-temp');
   feelsLikeTempCard.innerHTML = "";
   feelsLikeTempCard.append(feelsLikeTemp);
+}
+
+function weatherCardCelsius(weatherReport) {
+  let currentDateTime = document.createElement('h2');
+  currentDateTime.textContent = `Local Date / Time : ${weatherReport.location.localtime}`;
+
+  let currentDateTimeCard = document.querySelector('.current-date-time');
+  currentDateTimeCard.innerHTML = "";
+  currentDateTimeCard.append(currentDateTime);
+
+  let currentTempCelsius = document.createElement('h2');
+  currentTempCelsius.textContent = `Current Temp : ${weatherReport.current.temp_c} °C`;
+  let currentTempCardCelsuis = document.querySelector('.current-temp');
+  currentTempCardCelsius.innerHTML = "";
+  currentTempCardCelsius.append(currentTempCelsius);
+
+  let feelsLikeTempCelsius = document.createElement('h2');
+  feelsLikeTempCelsius.textContent = `Feels Like : ${weatherReport.current.feelslike_c} °C`;
+  let feelsLikeTempCardCelsius = document.querySelector('.feels-temp');
+  feelsLikeTempCardCelsius.innerHTML = "";
+  feelsLikeTempCardCelsius.append(feelsLikeTempCelsius);
 }
 
 // This is on hold because I can't get layout to work
