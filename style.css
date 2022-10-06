@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -19,9 +19,22 @@ form {
 
 label {
     color: white;
+} */
+
+.nav-bar {
+    margin: 20px;
 }
 
-.toggle {
+.search-bar {
+    /* display: inline-block; */
+}
+
+.location-highlight {
+    display: inline;
+    text-align: center;
+}
+
+/* .toggle {
     position: absolute;
     left: 300px;
     top: 50px;
@@ -52,4 +65,4 @@ label {
     left: calc(100% - 70px);
     background-color: #fff;
     border-color: green;
-}
+} */

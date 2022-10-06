@@ -11,17 +11,21 @@
 </head>
 
 <body>
-    <div>
-    <form id="weather-search">
-        <label for="location-search">Check the Weather</label>
-        <input type="text" placeholder="Search by City or Zipcode" id="cityinput" name="cityinput">
-        <input type="submit" value="   Submit   ">
-    </form>
+    <div class="nav-bar">
+        <div class="search-bar">
+            <form id="weather-search">
+                <label for="location-search">Check the Weather</label>
+                <input type="text" placeholder="Search by City or Zipcode" id="cityinput" name="cityinput">
+                <input type="submit" value="   Submit   ">
+            </form>
+        </div>
+        <!-- <div class="toggle"></div> -->
+    </div>
 
-    <div class="toggle"></div>
-    <div id="city-name"></div>
-    <div id="date"></div>
-</div>
+    <div class="location-highlight">
+        <div id="city-name"></div>
+        <div id="country"></div>
+    </div>
 
 </body>
 
