@@ -1,4 +1,4 @@
-// Write your code below this line
+// Import your abstracted API Key
 import { options } from "./keys.js";
 
 const weatherApiUrl = "https://weatherapi-com.p.rapidapi.com/forecast.json?q=";
@@ -7,40 +7,61 @@ const searchForm = document.getElementById("weather-search");
 
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  // console.log(e.target.cityinput.value) //Works
   let requestedCity = e.target.cityinput.value;
-  //console.log(requestedCity); //Works
   fetchCityWeather(requestedCity);
   searchForm.reset();
 });
 
 function fetchCityWeather(city) {
-  //console.log(city); //Works
+  // console.log(city); //Works
   fetch(`${weatherApiUrl}${city}&days=3`, options)
-    .then(res => res.json())
-    .then(weatherReport => {
+    .then((res) => res.json())
+    .then((weatherReport) => {
       locationSpotlight(weatherReport);
+      weatherCardFahrenheit(weatherReport);
     })
     .catch((err) => console.error(err));
 }
 
 function locationSpotlight(weatherReport) {
-//console.log(weatherReport) //Works
+  //console.log(weatherReport); //Works
 
-//Display Setup for the locations name in Location Highlight
-  let locationName = document.createElement('h2');
+  //Display Setup for the locations name in Location Highlight
+  let locationName = document.createElement("h1");
   locationName.textContent = `${weatherReport.location.name} , ${weatherReport.location.region}`;
-  
-  let nameHighlight = document.getElementById('city-name');
-  nameHighlight.innerHTML = '';
+
+  let nameHighlight = document.querySelector(".city-name");
+  nameHighlight.innerHTML = "";
   nameHighlight.append(locationName);
 
-//Display Setup for the locations country in Location Highlight
-  let locationCountry = document.createElement('h2');
+  //Display Setup for the locations country in Location Highlight
+  let locationCountry = document.createElement("h1");
   locationCountry.textContent = weatherReport.location.country;
 
-  let countryHighlight = document.getElementById('country');
-  countryHighlight.innerHTML = '';
+  let countryHighlight = document.querySelector(".country");
+  countryHighlight.innerHTML = "";
   countryHighlight.append(locationCountry);
+}
+
+function weatherCardFahrenheit(weatherReport) {
+  //console.log(weatherReport); //Works
+
+  //Display Setup for Current Date and Time for Weather Card
+  let currentDateTime = document.createElement('h2');
+  currentDateTime.textContent = `Local Date / Time : ${weatherReport.location.localtime}`;
+
+  let currentDateTimeCard = document.querySelector('.current-date-time');
+  currentDateTimeCard.innerHTML = "";
+  currentDateTimeCard.append(currentDateTime);
+
+  //Display Setup for current Temp for Weather Card
+  let currentTemp = document.createElement('h2');
+  currentTemp.textContent = `Current Temp : ${weatherReport.current.temp_f} °F`;
+  
+  let currentTempCard = document.querySelector('.current-temp');
+  currentTempCard.innerHTML = "";
+  currentTempCard.append(currentTemp);
 }
 
 // This is on hold because I can't get layout to work

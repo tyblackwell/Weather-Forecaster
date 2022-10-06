@@ -14,7 +14,9 @@
     <div class="nav-bar">
         <div class="search-bar">
             <form id="weather-search">
-                <label for="location-search">Check the Weather</label>
+                <div>
+                    <label for="location-search">Check the Weather</label>
+                </div>
                 <input type="text" placeholder="Search by City or Zipcode" id="cityinput" name="cityinput">
                 <input type="submit" value="   Submit   ">
             </form>
@@ -22,9 +24,14 @@
         <!-- <div class="toggle"></div> -->
     </div>
 
-    <div class="location-highlight">
-        <div id="city-name"></div>
-        <div id="country"></div>
+    <div id="location-highlight">
+        <div class="city-name"></div>
+        <div class="country"></div>
+    </div>
+
+    <div id="weather-card">
+        <div class="current-date-time"></div>
+        <div class="current-temp"></div>
     </div>
 
 </body>
