@@ -21,21 +21,29 @@
                 <input type="submit" value="   Submit   ">
             </form>
         </div>
-        <!-- <div class="toggle"></div> -->
+        <!--Radio Button-->
+        <fieldset id="unit-selection">
+            <legend>Select Temperature Unit</legend>
+            <div>
+                <input type="radio" name="unit" value="fahrenheit"
+                checked="checked" /> Fahrenheit
+                <input type="radio" name="unit" value="celcius" /> Celcius
+            </div>
+        </fieldset>
+        <div id="theme">
+        <button id="dusk"> Dusk </button>
+        <button id="day"> Day </button>
+        </div>
     </div>
 
     <div id="location-highlight">
         <div class="city-name"></div>
         <div class="country"></div>
     </div>
-
     <div id="weather-card">
         <div class="current-date-time"></div>
         <div class="current-temp"></div>
         <div class="feels-temp"></div>
-        <div class="wind-speed"></div>
     </div>
-
 </body>
-
 </html>
