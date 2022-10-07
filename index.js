@@ -1,5 +1,8 @@
-// Import your abstracted API Key
+// Import abstracted API Key
 import { options } from "./keys.js";
+
+//Selected Unit - Default
+let selectedUnit;
 
 const weatherApiUrl = "https://weatherapi-com.p.rapidapi.com/forecast.json?q=";
 
@@ -18,8 +21,13 @@ function fetchCityWeather(city) {
   fetch(`${weatherApiUrl}${city}&days=3`, options)
     .then((res) => res.json())
     .then((weatherReport) => {
-      locationSpotlight(weatherReport);
-      weatherCardFahrenheit(weatherReport);
+      if (selectedUnit === "celcius") {
+        locationSpotlight(weatherReport);
+        weatherCardCelcius(weatherReport);
+      } else {
+        locationSpotlight(weatherReport);
+        weatherCardFahrenheit(weatherReport);
+      }
     })
     .catch((err) => console.error(err));
 }
@@ -48,30 +56,71 @@ function weatherCardFahrenheit(weatherReport) {
   //console.log(weatherReport); //Works
 
   //Display Setup for Current Date and Time for Weather Card
-  let currentDateTime = document.createElement('h2');
+  let currentDateTime = document.createElement("h2");
   currentDateTime.textContent = `Local Date / Time : ${weatherReport.location.localtime}`;
 
-  let currentDateTimeCard = document.querySelector('.current-date-time');
+  let currentDateTimeCard = document.querySelector(".current-date-time");
   currentDateTimeCard.innerHTML = "";
   currentDateTimeCard.append(currentDateTime);
 
   //Display Setup for current Temp for Weather Card
-  let currentTemp = document.createElement('h2');
+  let currentTemp = document.createElement("h2");
   currentTemp.textContent = `Current Temp : ${weatherReport.current.temp_f} °F`;
-  
-  let currentTempCard = document.querySelector('.current-temp');
+
+  let currentTempCard = document.querySelector(".current-temp");
   currentTempCard.innerHTML = "";
   currentTempCard.append(currentTemp);
 
   //Display Setup for Feels Like Temp for Weather Card
-  let feelsLikeTemp = document.createElement('h2');
+  let feelsLikeTemp = document.createElement("h2");
   feelsLikeTemp.textContent = `Feels Like : ${weatherReport.current.feelslike_f} °F`;
-  let feelsLikeTempCard = document.querySelector('.feels-temp');
+  let feelsLikeTempCard = document.querySelector(".feels-temp");
   feelsLikeTempCard.innerHTML = "";
   feelsLikeTempCard.append(feelsLikeTemp);
 }
 
-// This is on hold because I can't get layout to work
-// const toggleBtn = document.querySelector(".toggle");
+function weatherCardCelcius(weatherReport) {
+  //Display Setup for Current Date and Time for Weather Card
+  let currentDateTime = document.createElement("h2");
+  currentDateTime.textContent = `Local Date / Time : ${weatherReport.location.localtime}`;
 
-// toggleBtn.addEventListener("click", () => toggleBtn.classList.toggle("active"));
+  let currentDateTimeCard = document.querySelector(".current-date-time");
+  currentDateTimeCard.innerHTML = "";
+  currentDateTimeCard.append(currentDateTime);
+
+  //Display Setup for current Temp for Weather Card
+  let currentTemp = document.createElement("h2");
+  currentTemp.textContent = `Current Temp : ${weatherReport.current.temp_c} °C`;
+
+  let currentTempCard = document.querySelector(".current-temp");
+  currentTempCard.innerHTML = "";
+  currentTempCard.append(currentTemp);
+
+  //Display Setup for Feels Like Temp for Weather Card
+  let feelsLikeTemp = document.createElement("h2");
+  feelsLikeTemp.textContent = `Feels Like : ${weatherReport.current.feelslike_c} °C`;
+  let feelsLikeTempCard = document.querySelector(".feels-temp");
+  feelsLikeTempCard.innerHTML = "";
+  feelsLikeTempCard.append(feelsLikeTemp);
+}
+
+const unitSelection = document.getElementById("unit-selection");
+
+unitSelection.addEventListener("change", (e) => {
+  //console.log(e.target.value) //Works - Type: String
+  selectedUnit = e.target.value;
+});
+
+const duskBtn = document.getElementById("dusk");
+
+duskBtn.addEventListener("click", () => {
+  document.body.style.backgroundImage =
+    "url('src/pictures/dusk_background.jpg')";
+});
+
+const dayBtn = document.getElementById("day");
+
+dayBtn.addEventListener("click", () => {
+  document.body.style.backgroundImage =
+    "url('src/pictures/day_background.jpeg')";
+});
