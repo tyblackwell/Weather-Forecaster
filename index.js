@@ -77,6 +77,20 @@ function weatherCardFahrenheit(weatherReport) {
   let feelsLikeTempCard = document.querySelector(".feels-temp");
   feelsLikeTempCard.innerHTML = "";
   feelsLikeTempCard.append(feelsLikeTemp);
+
+  //Display Setup for Wind Speed
+  let windSpeed = document.createElement('h2');
+  windSpeed.textContent = `Wind Speed : ${weatherReport.current.wind_mph} mph`;
+  let windSpeedCard = document.querySelector('.wind-speed');
+  windSpeedCard.innerHTML = "";
+  windSpeedCard.append(windSpeed);
+
+  //Display Setup for Rain Amount
+  let rainAmount = document.createElement('h2');
+  rainAmount.textContent = `Rainfall : ${weatherReport.current.precip_in} in`;
+  let rainAmountCard = document.querySelector('.rain-amount');
+  rainAmountCard.innerHTML = "";
+  rainAmountCard.append(rainAmount);
 }
 
 function weatherCardCelcius(weatherReport) {
@@ -102,6 +116,20 @@ function weatherCardCelcius(weatherReport) {
   let feelsLikeTempCard = document.querySelector(".feels-temp");
   feelsLikeTempCard.innerHTML = "";
   feelsLikeTempCard.append(feelsLikeTemp);
+
+  //Display Setup for Wind
+  let windSpeed = document.createElement('h2');
+  windSpeed.textContent = `Wind Speed : ${weatherReport.current.wind_kph} kph`;
+  let windSpeedCard = document.querySelector('.wind-speed');
+  windSpeedCard.innerHTML = "";
+  windSpeedCard.append(windSpeed);
+
+  //Display Setup for Rain fall
+  let rainAmount = document.createElement('h2');
+  rainAmount.textContent = `Rainfall : ${weatherReport.current.precip_mm} mm`;
+  let rainAmountCard = document.querySelector('.rain-amount');
+  rainAmountCard.innerHTML = "";
+  rainAmountCard.append(rainAmount);
 }
 
 const unitSelection = document.getElementById("unit-selection");
